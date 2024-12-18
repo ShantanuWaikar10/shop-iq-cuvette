@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -24,6 +25,7 @@ const ProductDetails = () => {
 
   return (
     <>
+      <Navbar />
       {loading ? (
         <>
           <h1 className="grid place-items-center min-h-screen">Loading...</h1>
@@ -48,7 +50,9 @@ const ProductDetails = () => {
                   {productDetail[0]?.description}{" "}
                 </p>
                 <p className="my-2 font-bold">Rs.{productDetail[0]?.price}</p>
-                <p className="my-2 text-slate-500 font-semibold">Rating: {productDetail[0]?.rating} / 5</p>
+                <p className="my-2 text-slate-500 font-semibold">
+                  Rating: {productDetail[0]?.rating} / 5
+                </p>
                 <button className="bg-slate-300 mt-3 rounded-md px-7 py-2 hover:underline">
                   Add to Cart
                 </button>
